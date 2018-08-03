@@ -18,6 +18,7 @@ Source1:	https://github.com/mickelson/attract/releases/download/v1.6.2/ATTRACT.M
 Source2:	https://github.com/mickelson/attract/releases/download/v1.6.2/ATTRACT.MODE.intro.4-3.v6.1080p.mp4
 Patch0:         attract-2.3.0-makefile.patch
 
+BuildRequires:	gcc-c++
 BuildRequires:  ffmpeg-devel
 BuildRequires:  pkgconfig(fontconfig)
 BuildRequires:  pkgconfig(freetype2)
