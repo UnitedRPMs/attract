@@ -1,18 +1,22 @@
 %global debug_package %{nil}
 %global _iconsdir /usr/share/icons
 
+%global gitdate 20180802
+%global commit0 d8cfab12bb7a64694a9fdcf76440c443f7e84802
+%global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
+%global gver .git%{shortcommit0}
+
 Name:           attract
-Version:        2.3.0
-Release:        4%{?dist}
+Version:        2.4
+Release:        1%{?dist}
 Summary:        Graphical frontend for command line emulators
 Group:          Applications/Emulators
 License:        GPLv3+
 URL:            http://attractmode.org
-Source0:        https://github.com/mickelson/attract/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/mickelson/attract/archive/%{commit0}.tar.gz#/%{name}-%{shortcommit0}.tar.gz
 Source1:	https://github.com/mickelson/attract/releases/download/v1.6.2/ATTRACT.MODE.intro.16-9.v6.1080p.mp4
 Source2:	https://github.com/mickelson/attract/releases/download/v1.6.2/ATTRACT.MODE.intro.4-3.v6.1080p.mp4
 Patch0:         attract-2.3.0-makefile.patch
-Patch1:         attract-2.3.0-ffmpeg-4.0.patch
 
 BuildRequires:  ffmpeg-devel
 BuildRequires:  pkgconfig(fontconfig)
@@ -37,7 +41,7 @@ is intended to be controlled with a joystick, gamepad or spin dial,
 making it ideal for use in arcade cabinet setups.
 
 %prep
-%autosetup -p1
+%autosetup -n %{name}-%{commit0} -p1
 
 %build
 %make_build prefix=%{_prefix}
@@ -71,6 +75,9 @@ install -Dm644 %{S:2} %{buildroot}/%{_datadir}/%{name}/intro/intro_4x3.mp4
 
 
 %changelog
+
+* Thu Aug 02 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> 2.4-1 
+- Updated to 2.4
 
 * Wed Aug 01 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> 2.3.0-4 
 - Upstream
