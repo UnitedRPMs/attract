@@ -1,0 +1,26 @@
+Index: attract-2.3.0/Makefile
+===================================================================
+--- attract-2.3.0/Makefile
++++ attract-2.3.0/Makefile	2017-12-30 11:44:25.376395851 +0100
+@@ -61,7 +61,8 @@
+ 
+ CC=gcc
+ CXX=g++
+-CFLAGS=$(EXTRA_CFLAGS)
++CFLAGS+=
++LDFLAGS+=
+ STRIP=strip
+ PKG_CONFIG=pkg-config
+ AR=ar
+@@ -444,10 +445,7 @@
+ 
+ $(EXE): $(OBJ) $(EXPAT) $(SQUIRREL) $(AUDIO)
+ 	$(EXE_MSG)
+-	$(SILENT)$(CXX) -o $@ $^ $(CFLAGS) $(FE_FLAGS) $(LIBS)
+-ifneq ($(FE_DEBUG),1)
+-	$(SILENT)$(STRIP) $@
+-endif
++	$(SILENT)$(CXX) -o $@ $^ $(CFLAGS) $(FE_FLAGS) $(LIBS) $(LDFLAGS)
+ 
+ .PHONY: clean
+ .PHONY: install
