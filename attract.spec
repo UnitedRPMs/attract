@@ -1,13 +1,13 @@
 %global debug_package %{nil}
 %global _iconsdir /usr/share/icons
 
-%global gitdate 20180802
-%global commit0 d8cfab12bb7a64694a9fdcf76440c443f7e84802
+%global gitdate 20181211
+%global commit0 0f50c8e9027877ac808d384160bcf812bbfa4800
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global gver .git%{shortcommit0}
 
 Name:           attract
-Version:        2.4
+Version:        2.5.1
 Release:        1%{?dist}
 Summary:        Graphical frontend for command line emulators
 Group:          Applications/Emulators
@@ -76,6 +76,9 @@ install -Dm644 %{S:2} %{buildroot}/%{_datadir}/%{name}/intro/intro_4x3.mp4
 
 
 %changelog
+
+* Tue Dec 11 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> 2.5.1-1 
+- Updated to 2.5.1
 
 * Thu Aug 02 2018 Unitedrpms Project <unitedrpms AT protonmail DOT com> 2.4-1 
 - Updated to 2.4
