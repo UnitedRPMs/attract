@@ -6,5 +6,6 @@ SRPMS/*
 *.tar.gz
 *.mp4
 .directory
+*.rpm
 
 
